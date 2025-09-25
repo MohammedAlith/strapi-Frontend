@@ -36,7 +36,7 @@ type WorkSection = {
 
 
 export default async function WorkSection(){
-    const strapiUrl = 'https://strapi-backend-alhx.onrender.com/';
+    const strapiUrl = 'https://strapi-backend-alhx.onrender.com';
   let data: WorkSection | null = null;
 
   try {

@@ -35,7 +35,7 @@ type AboutSection = {
 };
 
 export default async function AboutSection() {
-  const strapiUrl = 'https://strapi-backend-alhx.onrender.com/';
+  const strapiUrl = 'https://strapi-backend-alhx.onrender.com';
   let data: AboutSection | null = null;
 
   try {
