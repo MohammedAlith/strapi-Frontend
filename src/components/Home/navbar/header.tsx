@@ -34,7 +34,7 @@ export default async function Header() {
   let errorMessage: string | null = null;
 
   try {
-    const res = await fetch(`${strapiUrl}/api/home-page?populate[Navtabs][populate]=*`, { cache: 'force-cache' });
+    const res = await fetch(`${strapiUrl}/api/home-page?populate[Navtabs][populate]=*`, {next: { revalidate: 60 }});
     console.log(res.headers.get('x-nextjs-cache')); 
     if (!res.ok) throw new Error('Failed to fetch Navbar from Strapi');
     const json = await res.json();
