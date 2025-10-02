@@ -6,8 +6,8 @@ interface PageProps {
   };
 }
 
-export default function sections({ params }: PageProps) {
-  const { section } = params;
+export default async function sections({ params }: PageProps) {
+  const { section }:any = await params.section;
 
   // Conditionally render based on slug
   if (section === "about") {
