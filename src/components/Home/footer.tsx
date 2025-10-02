@@ -38,7 +38,7 @@ export default async function Footer() {
   return (
     <div className="bg-[#21262c] grid lg:grid-cols-2 gap-10 p-4 pt-20 pb-20 md:p-8 md:pt-20 md:pb-20 lg:p-20 text-white">
       {/* Left: Logo, copyright, social */}
-      <div className="flex flex-col gap-5 lg:items-center items-start text-start lg:text-center md:text-left">
+      <div className="flex flex-col gap-5 lg:items-start items-start text-start lg:text-center md:text-left">
         {footer?.logo?.imgurl && (
           <img src={footer.logo.imgurl} width={150} height={100} alt="Logo" />
         )}
