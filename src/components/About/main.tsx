@@ -39,7 +39,7 @@ export default async function main(){
           
 
         </div>
-        <div className="pt-8 md:pt-0">
+        <div className="pt-16 md:pt-0">
         <AboutSection />
         <WorkSection/>
         <TeamsServer/>
