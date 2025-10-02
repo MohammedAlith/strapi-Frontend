@@ -8,8 +8,9 @@ interface Achievement {
 }
 
 async function fetchAchievements(): Promise<Achievement[]> {
+  const strapiUrl = 'https://strapi-backend-alhx.onrender.com';
   const res = await fetch(
-    "https://strapi-backend-alhx.onrender.com/api/home-page?populate[Achievement][populate]=*",
+    `${strapiUrl}/api/home-page?populate[Achievement][populate]=*`,
     { next: { revalidate: 60 } } // ISR cache if desired
   );
   if (!res.ok) {
@@ -32,10 +33,10 @@ export default async function Achievements() {
 
   return (
     <div
-      className="bg-blue-50 w-full relative p-20"
-      style={{ clipPath: "polygon(0 0, 100% 0, 100% 85%, 0 100%)" }}
+      className="bg-blue-50 w-full relative p-30"
+      style={{ clipPath: "polygon(0 0, 100% 0, 100% 90%, 0 100%)" }}
     >
-      <div className="flex gap-20 justify-center">
+      <div className="flex flex-col md:flex-row gap-20 justify-center items-center md:pb-30">
         {stats.map((stat, index) => (
           <div key={stat.id} className="flex flex-col items-center gap-2">
             <div className="text-5xl">{icons[index]}</div>

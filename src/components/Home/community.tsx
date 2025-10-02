@@ -18,8 +18,9 @@ interface CommunityData {
 }
 
 async function fetchCommunity(): Promise<CommunityData | null> {
+  const strapiUrl = 'https://strapi-backend-alhx.onrender.com';
   const res = await fetch(
-    "https://strapi-backend-alhx.onrender.com/api/home-page?populate[community][populate]=*",
+    `${strapiUrl}/api/home-page?populate[community][populate]=*`,
     { next: { revalidate: 60 } }
   );
   if (!res.ok) return null;
@@ -32,7 +33,7 @@ export default async function CommunitySection() {
   if (!community) return null;
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-blue-50 px-4 py-20">
+    <div className="flex flex-col items-center  w-screen  bg-blue-50 p-4 pt-10 pb-20 md:p-28 md:pb-10">
       {/* Icon */}
       <img
         src={community.img.imgurl}
@@ -43,23 +44,23 @@ export default async function CommunitySection() {
       />
 
       {/* Heading */}
-      <h1 className="text-4xl font-bold text-center mb-4">
+      <h1 className="text-3xl md:text-4xl font-semibold text-center  mb-4">
         {community.title}
       </h1>
 
       {/* Description */}
-      <p className="text-xl text-gray-500 text-center max-w-2xl mb-8">
+      <p className="text-xl text-gray-500 text-center w-full lg:max-w-2xl mb-8 indent-8">
         {community.desc}
       </p>
 
       {/* Email Input + Button */}
-      <div className="flex w-full max-w-md">
+      <div className="flex w-full justify-center">
         <input
           type="text"
           placeholder={community.button.email}
-          className="flex-1 border border-r-0 rounded-l-xl px-4 py-3 focus:outline-none"
+          className=" border border-r-0 rounded-l-xl px-6 py-3 w-55 md:w-70"
         />
-        <button className="bg-blue-600 text-white px-6 py-3 rounded-r-xl hover:bg-blue-700 transition">
+        <button className="bg-blue-700 text-white px-6 py-3 border border-l-0 rounded-r-xl ">
           {community.button.submit}
         </button>
       </div>

@@ -14,7 +14,7 @@ type Props = {
 
 export default function NavTabs({ tabs }: Props) {
   return (
-    <ul className="flex space-x-10 list-none font-semibold  text-md">
+    <ul className="lg:flex lg:space-x-10 list-none font-semibold  text-md sm:hidden ">
       <li><a href="#" className="text-gray-700">{tabs.tab1}</a></li>
       <li><a href="#" className="text-gray-700">{tabs.tab2}</a></li>
       <li><a href="#" className="text-gray-700">{tabs.tab3}</a></li>

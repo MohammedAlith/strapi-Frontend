@@ -17,8 +17,9 @@ interface ContactData {
 }
 
 async function fetchContact(): Promise<ContactData | null> {
+  const strapiUrl = 'https://strapi-backend-alhx.onrender.com';
   const res = await fetch(
-    "https://strapi-backend-alhx.onrender.com/api/home-page?populate[contact][populate]=*",
+    `${strapiUrl}/api/home-page?populate[contact][populate]=*`,
     { next: { revalidate: 60 } }
   );
   if (!res.ok) return null;
@@ -34,26 +35,26 @@ export default async function ContactSection() {
   if (!contact) return null;
 
   return (
-    <div className="grid grid-cols-2 p-20 pb-0 relative">
+    <div className="grid lg:grid-cols-2 lg:p-30 pt-40 md:p-8 p-4 md:pt-28 lg:pb-0 relative">
    
-      <div className="relative grid justify-center">
+      <div className="relative grid lg:justify-center justify-start">
         <div
-          className="w-45 h-80 absolute left-5.5 -top-11.5
+          className="w-45 h-80 absolute lg:left-5.5 -top-12 md:-left-12
                      bg-[radial-gradient(circle,_#3f78e0_2px,_transparent_2.5px)]
                      bg-[length:20px_20px]
-                     opacity-50"
+                     opacity-50 hidden md:block"
         />
         <div>
           <img
             src={contact.imgs.img1url1}
-            className="h-auto max-h-5/6 rounded-xl"
+            className="h-auto  lg:max-h-5/6 rounded-xl"
             alt="Contact"
           />
         </div>
       </div>
 
       {/* Right Content */}
-      <div className="flex flex-col gap-14 pt-5">
+      <div className="flex flex-col gap-14 pt-10 pb-20 lg:pb-0 lg:pt-5">
         <div className="flex flex-col gap-8">
           <img
             src={contact.imgs.img2url2}
@@ -61,7 +62,7 @@ export default async function ContactSection() {
             width={50}
             alt="Icon"
           />
-          <h1 className="text-4xl text-gray-700">{contact.title}</h1>
+          <h1 className="text-2xl md:text-4xl text-gray-700 font-bold">{contact.title}</h1>
         </div>
 
         <div className=" ps-0 pb-0 grid gap-8">
@@ -71,7 +72,7 @@ export default async function ContactSection() {
               <div key={idx} className="flex gap-5">
                 <div className="flex flex-col">
                   <Icon className="text-blue-400 text-3xl text-center" />
-                  {idx === 0 && ( // show line only for first icon
+                  {idx === 0 && ( 
     <div className="ms-1 bg-blue-400 w-6 h-1 rounded-md"></div>
   )}
                 </div>

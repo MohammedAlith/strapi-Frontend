@@ -35,7 +35,7 @@ type AboutSection = {
 };
 
 export default async function AboutSection() {
-  const strapiUrl = 'https://strapi-backend-alhx.onrender.com';
+ const strapiUrl = 'https://strapi-backend-alhx.onrender.com';
   let data: AboutSection | null = null;
 
   try {
@@ -51,85 +51,64 @@ export default async function AboutSection() {
   if (!data) return null;
 
   return (
-    <div className="grid grid-cols-2 gap-5 p-14">
-     
-      <div className="bg-white p-6 grid gap-7">
-        <img
-          src={data.AboutSection.aboutsvg.url}
-          alt="about-svg"
-          width={60}
-          height={120}
-         
-        />
-        <h1 className="text-4xl font-semibold text-gray-700">{data.AboutSection.title}</h1>
-        <p className="text-2xl text-gray-500">{data.AboutSection.intro}</p>
-        <p className="text-lg text-gray-500">{data.AboutSection.desc}</p>
+    <div className="grid  md:grid-cols-1 lg:grid-cols-2 md:gap-20 gap-9 p-4 pt-8 lg:p-16 md:p-8 md:mt-28 lg:w-screen">
 
-        <div className="grid grid-cols-2 gap-4 text-gray-500">
-          <div className="flex gap-3">
-        <div className="p-3 bg-[#E0E9F4] w-5 h-5 rounded-full flex items-center justify-center">
-  <p><FaCheck className="text-[#3f78e0] text-sm" /></p>
-</div>
+  {/* Text Section */}
+  <div className="bg-white lg:p-6 grid gap-5 order-1 lg:order-none ">
+    <img
+      src={data.AboutSection.aboutsvg.url}
+      alt="about-svg"
+      width={60}
+      height={120}
+    />
+    <h1 className="text-4xl font-semibold text-gray-700">{data.AboutSection.title}</h1>
+    <p className="text-2xl text-gray-500">{data.AboutSection.intro}</p>
+    <p className="text-lg text-gray-500 leading-6">{data.AboutSection.desc}</p>
 
-
-            <p>{data.AboutSection.details.detail1.text}</p>
-          </div>
-          <div className="flex gap-3">
-           <div className="p-3 bg-blue-200 w-5 h-5 rounded-full flex items-center justify-center">
-  <p><FaCheck className="text-blue-500 text-sm" /></p>
-</div>
-            <p>{data.AboutSection.details.detail2.text}</p>
-          </div>
-           <div className="flex gap-3">
-           <div className="p-3 bg-blue-200 w-5 h-5 rounded-full flex items-center justify-center">
-  <p><FaCheck className="text-blue-500 text-sm" /></p>
-</div>
-            <p>{data.AboutSection.details.detail3.text}</p>
-          </div>
-          <div className="flex gap-3">
-          <div className="p-3 bg-blue-200 w-5 h-5 rounded-full flex items-center justify-center">
-  <p><FaCheck className="text-blue-500 text-sm" /></p>
-</div>
-            <p>{data.AboutSection.details.detail4.text}</p>
-          </div>
-        </div>
+  <div className="grid sm:grid-cols-1  lg:grid-cols-2 gap-3 text-gray-500 w-full">
+  {[1, 2, 3, 4].map((i) => (
+    <div key={i} className="flex items-center gap-3">
+      <div className="p-2 bg-blue-200 w-6 h-6 rounded-full flex items-center justify-center">
+        <FaCheck className="text-white text-xs md:text-sm" />
       </div>
-
-      <div className="relative grid grid-cols-2 p-6 rounded overflow-visible">
-
- <div
-  className="absolute z-0 bg-[radial-gradient(circle,_#3f78e0_2px,_transparent_2.5px)] 
-             bg-[length:20px_20px] opacity-50"
-  style={{
-    top: "3rem",      
-    left: "6rem",  
-    transform: "translate3d(0px, 17px, 0px)", 
-    width: "6rem",    
-    height: "10rem", 
-  }}
-></div>
-
-
-
- 
- <div>
-    <img
-      src={data.AboutSection.imgs.img1url1}
-      alt="about-img1"
-      className="rounded-lg absolute left-7 top-40 h-74 w-2/4 z-50" 
-    />
+      <p className="text-md text-gray-500 ">
+        {data.AboutSection.details[`detail${i}` as keyof Details].text}
+      </p>
+    </div>
+  ))}
 </div>
 
-<div>
-    <img
-      src={data.AboutSection.imgs.img2url2}
-      alt="about-img2"
-      className="rounded-lg w-4/6 absolute right-0 "
-    />
-    </div>
+  </div>
+
+  {/* Image Section */}
+  {/* Image Section */}
+<div className="relative w-full flex flex-col md:flex-row gap-10 md:gap-0 h-auto md:h-[500px] lg:h-[600px]">
+
+  {/* Background gradient dots */}
+  <div
+    className="absolute z-0 bg-[radial-gradient(circle,_#3f78e0_2px,_transparent_2.5px)] bg-[length:20px_20px] opacity-50 hidden md:block md:w-40 md:h-40 w-24 h-40"
+    style={{
+      top: "3rem",
+      left: "6rem",
+    }}
+  ></div>
+
+  {/* Image 1 */}
+  <img
+    src={data.AboutSection.imgs.img1url1}
+    alt="about-img1"
+    className="rounded-lg w-full md:w-2/4 lg:w-2/4 h-64 md:h-96 lg:h-74 object-cover md:absolute lg:absolute md:left-7 md:top-40 z-10"
+  />
+
+  {/* Image 2 */}
+  <img
+    src={data.AboutSection.imgs.img2url2}
+    alt="about-img2"
+    className="rounded-lg w-full md:w-4/6 lg:w-4/6 h-64 md:h-auto object-cover md:absolute md:right-0 md:top-0"
+  />
+</div>
 
 </div>
 
-    </div>
   );
 }
