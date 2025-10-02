@@ -52,7 +52,7 @@ export default async function WorkSection(){
   if (!data) return null;
 
     return(
-        <div className="grid  gap-5  p-4 pt-16 lg:p-20 " >
+        <div className="grid  gap-5  p-4 pt-18 lg:p-20 " >
             <div className="flex flex-col gap-5 lg:justify-center items-center 
             ">
                  <img
@@ -62,16 +62,16 @@ export default async function WorkSection(){
           height={120}
          
         />
-                <h1 className="text-4xl text-center text-gray-700 font-semibold lg:mx-60">{data.WorkSection.heading}</h1>
+                <h1 className="text-3xl md:text-4xl text-center text-gray-700 font-semibold lg:mx-60">{data.WorkSection.heading}</h1>
             </div>
             <div className="grid lg:grid-cols-2 gap-8 md:p-4 p-2">
                 <div className="flex flex-col lg:gap-6 gap-4 order-1 lg:order-none"> 
                     <h1 className="text-3xl text-gray-800 font-semibold">{data.WorkSection.title}</h1>
-                    <h3 className="text-3xl text-gray-600">{data.WorkSection.intro}</h3>
+                    <h3 className="text-2xl  text-gray-600">{data.WorkSection.intro}</h3>
                     <p className="text-gray-600 text-md leading-8">{data.WorkSection.desc.desc1}</p>
                      <p className="text-gray-600 text-md leading-8">{data.WorkSection.desc.desc2}</p>
-                     <div className="bg-blue-500 py-3 px-6 rounded-full w-fit">
-                      <a href="https://sandbox.elemisthemes.com/demo15.html#"><button className="text-white font-bold text-lg">{data.WorkSection.button}
+                     <div className="bg-blue-500 py-3 px-5 rounded-full w-fit">
+                      <a href="https://sandbox.elemisthemes.com/demo15.html#"><button className="text-white font-semibold text-lg">{data.WorkSection.button}
                         </button></a>
                         </div>
                 </div>

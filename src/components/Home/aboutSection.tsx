@@ -51,10 +51,10 @@ export default async function AboutSection() {
   if (!data) return null;
 
   return (
-    <div className="grid  md:grid-cols-1 lg:grid-cols-2 md:gap-20 gap-9 p-4 pt-8 lg:p-16 md:p-8 md:mt-28 lg:w-screen">
+    <div className="grid  md:grid-cols-1 lg:grid-cols-2 md:gap-30 lg:gap-0 gap-3 p-4 pt-4 md:pt-8 lg:p-16 md:p-8 md:mt-12 lg:w-screen">
 
   {/* Text Section */}
-  <div className="bg-white lg:p-6 grid gap-5 order-1 lg:order-none ">
+  <div className="bg-white lg:p-6 flex flex-col gap-5 order-1 lg:order-none justify-start ">
     <img
       src={data.AboutSection.aboutsvg.url}
       alt="about-svg"
@@ -65,11 +65,11 @@ export default async function AboutSection() {
     <p className="text-2xl text-gray-500">{data.AboutSection.intro}</p>
     <p className="text-lg text-gray-500 leading-6">{data.AboutSection.desc}</p>
 
-  <div className="grid sm:grid-cols-1  lg:grid-cols-2 gap-3 text-gray-500 w-full">
+  <div className="grid sm:grid-cols-1  lg:grid-cols-2 gap-1 md:gap-3  text-gray-500 w-full">
   {[1, 2, 3, 4].map((i) => (
     <div key={i} className="flex items-center gap-3">
       <div className="p-2 bg-blue-200 w-6 h-6 rounded-full flex items-center justify-center">
-        <FaCheck className="text-white text-xs md:text-sm" />
+        <FaCheck className="text-blue-700 text-md" />
       </div>
       <p className="text-md text-gray-500 ">
         {data.AboutSection.details[`detail${i}` as keyof Details].text}
@@ -80,31 +80,31 @@ export default async function AboutSection() {
 
   </div>
 
-  {/* Image Section */}
-  {/* Image Section */}
-<div className="relative w-full flex flex-col md:flex-row gap-10 md:gap-0 h-auto md:h-[500px] lg:h-[600px]">
+ 
+<div className="relative w-full flex flex-col-reverse md:flex-row gap-10 md:pt-80 md:gap-0 h-auto md:h-[500px] lg:h-[600px]">
 
-  {/* Background gradient dots */}
+
   <div
     className="absolute z-0 bg-[radial-gradient(circle,_#3f78e0_2px,_transparent_2.5px)] bg-[length:20px_20px] opacity-50 hidden md:block md:w-40 md:h-40 w-24 h-40"
     style={{
-      top: "3rem",
-      left: "6rem",
+      top: "7rem",
+      left: "5rem",
     }}
   ></div>
 
-  {/* Image 1 */}
+
   <img
     src={data.AboutSection.imgs.img1url1}
     alt="about-img1"
-    className="rounded-lg w-full md:w-2/4 lg:w-2/4 h-64 md:h-96 lg:h-74 object-cover md:absolute lg:absolute md:left-7 md:top-40 z-10"
+    className="rounded-lg w-full md:w-2/4 lg:w-2/4 h-64  md:h-96 
+    lg:h-74 object-cover md:absolute lg:absolute md:left-7 md:top-52 z-10"
   />
 
-  {/* Image 2 */}
+
   <img
     src={data.AboutSection.imgs.img2url2}
     alt="about-img2"
-    className="rounded-lg w-full md:w-4/6 lg:w-4/6 h-64 md:h-auto object-cover md:absolute md:right-0 md:top-0"
+    className="rounded-lg w-full md:w-4/6 lg:w-4/6 h-64 md:mt-20  md:h-auto object-cover md:absolute md:right-0 md:top-0"
   />
 </div>
 

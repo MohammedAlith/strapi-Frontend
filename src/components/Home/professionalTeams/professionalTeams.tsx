@@ -44,16 +44,16 @@ export default async function ProfessionalTeamsServer() {
   }
 
   return (
-    <div className="grid p-10 md:p-20 gap-5 relative">
+    <div className="grid p-4 md:p-20 pt-18 gap-5 relative">
       {/* Header */}
-      <div className="flex flex-col gap-5 justify-center items-center">
+      <div className="flex flex-col gap-5 justify-start md:justify-center items-center">
         <img
           src="https://sandbox.elemisthemes.com/assets/img/icons/lineal/team.svg"
           alt="about-svg"
           width={60}
           height={120}
         />
-        <h1 className="text-2xl md:text-4xl text-center text-gray-700 font-semibold max-w-3xl">
+        <h1 className="text-2xl md:text-4xl md:text-center text-gray-700 font-semibold max-w-3xl">
           Save your time and money by choosing our professional team.
         </h1>
       </div>

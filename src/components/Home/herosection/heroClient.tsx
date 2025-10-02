@@ -21,6 +21,10 @@ type Hero = {
   };
 };
 
+type HeaderClientProps = {
+  isHome?: boolean; // <- define prop here
+};
+
 interface Props {
   hero: Hero;
 }

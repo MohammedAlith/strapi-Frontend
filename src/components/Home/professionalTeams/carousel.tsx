@@ -31,16 +31,16 @@ export default function ProfessionalTeamsCarousel({ teams }: { teams: TeamMember
   const maxIndex = Math.max(teams.length - itemsPerSlide, 0);
 
   const Card = ({ team }: { team: TeamMember }) => (
-    <div className="bg-white border border-gray-200 rounded-xl shadow-md p-8 grid gap-4 flex-shrink-0 relative z-10">
+    <div className="bg-white border border-gray-200 rounded-lg shadow-md py-8 px-8 grid gap-4 flex-shrink-0 relative z-10 justify-start">
       <img
         src={team.img}
         alt={team.name}
-        className="rounded-full w-28 h-28 mx-auto object-cover"
+        className="rounded-full w-28 h-28  flex justify-centerS md:justify-center md:items-center md:mx-auto object-cover"
       />
-      <h1 className="text-gray-700 text-xl font-bold text-center">{team.name}</h1>
-      <p className="text-gray-400 text-md text-center">{team.role}</p>
-      <p className="text-gray-500 text-md text-center">{team.intro}</p>
-      <div className="flex gap-5 justify-center mt-2">
+      <h1 className="text-gray-700 text-xl font-bold text-start md:text-center">{team.name}</h1>
+      <p className="text-gray-400 text-md text-start md:text-center">{team.role}</p>
+      <p className="text-gray-500 text-md text-start md:text-center">{team.intro}</p>
+      <div className="flex gap-5 justify-start md:justify-center mt-2">
         <a href="#"><FaTwitter className="text-sky-400" /></a>
         <a href="#"><FaFacebookF className="text-blue-500" /></a>
         <a href="#"><FaDribbble className="text-rose-500" /></a>
@@ -78,11 +78,11 @@ export default function ProfessionalTeamsCarousel({ teams }: { teams: TeamMember
         name="carousel"
         checked={activeIndex === idx}
         onChange={() => setActiveIndex(idx)}
-        className="appearance-none w-4 h-4 rounded-full bg-gray-300"
+        className="appearance-none w-2 h-2 rounded-full bg-gray-300"
       />
       {activeIndex === idx && (
         <span className="absolute inset-0 flex items-center justify-center">
-          <span className="w-2 h-2 rounded-full bg-white"></span>
+          <span className="w-1 h-1 rounded-full bg-white"></span>
         </span>
       )}
     </label>

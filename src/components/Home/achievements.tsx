@@ -33,7 +33,7 @@ export default async function Achievements() {
 
   return (
     <div
-      className="bg-blue-50 w-full relative p-30"
+      className="bg-blue-50 w-full relative p-30 pb-40 md:pb-30"
       style={{ clipPath: "polygon(0 0, 100% 0, 100% 90%, 0 100%)" }}
     >
       <div className="flex flex-col md:flex-row gap-20 justify-center items-center md:pb-30">

@@ -41,12 +41,12 @@ export default async function TeamsServer() {
   return (
     <div
       className="relative bg-blue-50 md:p-10 lg:p-32 pt-24 p-4 md:pb-0 lg:pb-0 overflow-hidden"
-      style={{ clipPath: "polygon(0 0, 100% 5%, 100% 100%, 0 100%)" }}
+      style={{ clipPath: "polygon(0 0, 100% 15%, 100% 100%, 0 100%)" }}
     >
-      <div className="grid md:grid-cols-2">
+      <div className="grid md:grid-cols-2 md:pt-28">
         {/* Image (server-rendered) */}
-        <div className="relative lg:ps-24 md:pb-0 hidden md:block">
-          <div className="w-56 h-56 rounded-full bg-blue-100 absolute hidden lg:block top-22 right-20"></div>
+        <div className="relative lg:ps-24 md:pb-0  hidden md:block">
+          <div className="w-56 h-56 rounded-full bg-blue-100 absolute hidden lg:block top-30 "></div>
           <img
             src={data.img.imgurl}
             alt="team"

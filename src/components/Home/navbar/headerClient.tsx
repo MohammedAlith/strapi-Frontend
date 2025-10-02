@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   IoInformationCircleOutline,
   IoSearchOutline,
@@ -26,37 +26,29 @@ type Logo = {
   url: string;
 };
 
-type NavbarProps = {
+type HeaderClientProps = {
   navtabs: NavTabsType;
   logo: Logo;
 };
 
-export default function HeaderClient({ navtabs, logo }: NavbarProps) {
-  const [scrolled, setScrolled] = useState(false);
+export default function HeaderClient({ navtabs, logo }: HeaderClientProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Scroll effect
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 0);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   // Lock scroll for mobile menu
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      const scrollY = window.scrollY;
+  const handleMobileMenu = (open: boolean) => {
+    const scrollY = window.scrollY;
+    setMobileMenuOpen(open);
+    if (open) {
       document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY}px`;
       document.body.style.width = "100%";
-      return () => {
-        document.body.style.position = "";
-        document.body.style.top = "";
-        document.body.style.width = "";
-        window.scrollTo(0, scrollY);
-      };
+    } else {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      window.scrollTo(0, scrollY);
     }
-  }, [mobileMenuOpen]);
+  };
 
   return (
     <>
@@ -65,12 +57,12 @@ export default function HeaderClient({ navtabs, logo }: NavbarProps) {
         <div className="fixed inset-0 z-[9999]">
           <div
             className="absolute inset-0 bg-black/50"
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={() => handleMobileMenu(false)}
           />
           <div className="absolute left-0 top-0 h-screen w-[85%] max-w-sm bg-black text-white p-6 flex flex-col gap-10 shadow-lg">
             <div className="flex justify-between items-center">
               <img src={logo.url} alt="Logo" width={120} height={50} />
-              <button onClick={() => setMobileMenuOpen(false)}>
+              <button onClick={() => handleMobileMenu(false)}>
                 <IoClose className="text-white text-3xl" />
               </button>
             </div>
@@ -101,14 +93,12 @@ export default function HeaderClient({ navtabs, logo }: NavbarProps) {
         </div>
       )}
 
-      {/* Navbar */}
-      <nav
-        className={`fixed top-0 left-0 w-screen z-50 transition-all duration-300 ${
-          scrolled ? "bg-white shadow-md text-black" : "bg-transparent text-white"
-        }`}
-      >
+      {/* Sticky Transparent Navbar */}
+      <nav className="sticky top-0 left-0 w-screen z-50 bg-white shadow text-gray-800 text-md ">
         <div className="flex justify-between px-4 lg:px-20 py-6 items-center">
           <img src={logo.url} alt="Logo" width={140} height={60} />
+
+          {/* Desktop Menu */}
           <ul className="lg:flex space-x-10 font-semibold text-md hidden">
             <li><a href="#">{navtabs.tab1}</a></li>
             <li><a href="#">{navtabs.tab2}</a></li>
@@ -117,11 +107,16 @@ export default function HeaderClient({ navtabs, logo }: NavbarProps) {
             <li><a href="#">{navtabs.tab5}</a></li>
             <li><a href="#">{navtabs.tab6}</a></li>
           </ul>
+
+          {/* Right icons */}
           <ul className="flex space-x-4">
             <li><a href="#" className="text-2xl"><IoInformationCircleOutline /></a></li>
             <li><a href="#" className="text-2xl"><IoSearchOutline /></a></li>
             <li>
-              <button className="text-2xl lg:hidden" onClick={() => setMobileMenuOpen(true)}>
+              <button
+                className="text-2xl lg:hidden"
+                onClick={() => handleMobileMenu(true)}
+              >
                 <IoMenu />
               </button>
             </li>
