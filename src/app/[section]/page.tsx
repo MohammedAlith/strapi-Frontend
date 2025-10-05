@@ -1,7 +1,10 @@
 // src/app/[section]/page.tsx
 
 import AboutSection from "@/components/About/main";
-
+import ContactSection from "@/components/Contact/Main";
+import SignIn from '@/components/SignIn/main';
+import SignUp from '@/components/SignUp/main';
+import Service from '@/components/Service/main'
 // Define the expected props for dynamic route
 
 
@@ -9,9 +12,11 @@ import AboutSection from "@/components/About/main";
 export function generateStaticParams() {
   return [
     { section: "about" },
-    // Add more sections here if needed
-    // { section: "contact" },
-    // { section: "services" },
+    {section:"contact"},
+     { section: "signIn" },
+  { section: "signUp" },
+    { section: "service" },
+    
   ];
 }
 
@@ -21,6 +26,18 @@ export default async function Sections({ params }: any) {
 
   if (section === "about") {
     return <AboutSection />;
+  }
+   if (section === "contact") {
+    return <ContactSection />;
+  }
+  if (section==="signIn"){
+return <SignIn/>
+  }
+   if (section==="signUp"){
+return <SignUp/>
+  }
+   if (section==="service"){
+return <Service/>
   }
 
   return (
