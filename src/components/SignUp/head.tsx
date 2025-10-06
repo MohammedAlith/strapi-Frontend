@@ -4,7 +4,7 @@ export default function head(){
     return(
         <div
   className="bg-gradient-to-t from-pink-300 to-blue-200
-             w-full h-[350px] flex flex-col justify-start pt-20 items-center gap-3"
+             w-full h-[350px] md:h-[500px]  flex flex-col justify-start pt-20  lg:pt-25  items-center gap-3"
 >
     <h1 className="text-gray-900 text-3xl font-bold ">Sign Up</h1>
     <div className="flex text-md text-gray-500 gap-3">

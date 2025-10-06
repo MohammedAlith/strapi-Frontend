@@ -7,7 +7,7 @@ import { FaEyeSlash } from "react-icons/fa";
     return(
        
       <> 
-              <div className="flex relative md:w-full">
+              <div className="flex relative w-full">
                    <input
                 placeholder="Password"
                 type={open ? "text": "password"}
@@ -18,7 +18,7 @@ import { FaEyeSlash } from "react-icons/fa";
                 </button>
                 </div>
 
-                <div className="flex relative md:w-full">
+                <div className="flex relative w-full">
                    <input
                 placeholder="Confirm Password"
                 type={open ? "text": "password"}

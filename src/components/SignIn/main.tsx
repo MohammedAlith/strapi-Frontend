@@ -1,4 +1,4 @@
-import Form from "./form"
+import Form from "./formServer"
 import Head from "./head"
 export default function Main(){
     return(
