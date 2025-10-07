@@ -5,7 +5,9 @@ import Step from './steps'
 import Model from './model'
 import Pricing from './price'
 import CustomerService from './customerService'
+export const dynamic = "force-static";
 export default function ServiceMain(){
+    
     return(
         <div className=' p-20 px-0 pt-0 pb-0'>
          <Head/>

@@ -4,6 +4,7 @@ import ContactSection from "../Home/contact"
 import ProfessionalTeams from "../Home/professionalTeams/professionalTeams"
 import TeamsServer from "../Home/teams/teamsServer"
 import WorkSection from "../Home/WorkSection"
+export const dynamic = "force-static"; 
  type aboutData={
    imgurl: string;
   title: string;

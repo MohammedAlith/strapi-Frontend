@@ -1,6 +1,8 @@
 import Form from "./form"
 import Head from "./head"
+export const dynamic = "force-static";
 export default function Main(){
+
     return(
         <div >
             <Head/>

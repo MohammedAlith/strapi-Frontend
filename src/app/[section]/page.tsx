@@ -6,7 +6,7 @@ import SignIn from '@/components/SignIn/main';
 import SignUp from '@/components/SignUp/main';
 import Service from '@/components/Service/main'
 // Define the expected props for dynamic route
-
+export const dynamic = "force-static";
 
 // Pre-render these section values at build time
 export function generateStaticParams() {

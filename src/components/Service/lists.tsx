@@ -1,7 +1,7 @@
 export default async function ServiceLists() {
   const strapiUrl = "https://strapi-backend-alhx.onrender.com";
   const res = await fetch(`${strapiUrl}/api/service-page?populate=*`, {
-    next: { revalidate: 60 }, // ISR: revalidate every 60s
+    next: { revalidate: 60 }, 
   });
 
   if (!res.ok) {

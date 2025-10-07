@@ -10,7 +10,7 @@ import Community from "@/components/Home/community";
 import Hero from "@/components/Home/herosection/heroServer";
 // import Hero from '@/components/Home/hero';
 
-
+export const dynamic = "force-static"; 
 
 export default function Home() {
   return (

@@ -2,6 +2,7 @@ import Head from '@/components/Contact/Heading'
 import Map from './map'
 import Form from './form'
 import Achievements from './achievements'
+export const dynamic = "force-static";
 export default function MainContact(){
     return(
         <div>
