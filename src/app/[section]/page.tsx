@@ -5,6 +5,7 @@ import ContactSection from "@/components/Contact/Main";
 import SignIn from '@/components/SignIn/main';
 import SignUp from '@/components/SignUp/main';
 import Service from '@/components/Service/main'
+import Career from '@/components/Career/main'
 // Define the expected props for dynamic route
 export const dynamic = "force-static";
 
@@ -16,6 +17,7 @@ export function generateStaticParams() {
      { section: "signIn" },
   { section: "signUp" },
     { section: "service" },
+    {section:"career"}
     
   ];
 }
@@ -40,6 +42,9 @@ return <SignUp/>
 return <Service/>
   }
 
+  if (section==="career"){
+return <Career/>
+  }
   return (
     <div className="p-10 text-center">
       <h1 className="text-4xl font-bold text-red-600">404 - Page Not Found</h1>

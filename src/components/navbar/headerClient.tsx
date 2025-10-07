@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { FaChevronDown } from "react-icons/fa";
 import {
   IoInformationCircleOutline,
   IoSearchOutline,
@@ -67,12 +68,18 @@ export default function HeaderClient({ navtabs, logo }: HeaderClientProps) {
               </button>
             </div>
             <ul className="flex flex-col space-y-4 font-semibold text-lg">
-              <li><a href="#">{navtabs.tab1}</a></li>
-              <li><a href="#">{navtabs.tab2}</a></li>
-              <li><a href="#">{navtabs.tab3}</a></li>
-              <li><a href="#">{navtabs.tab4}</a></li>
-              <li><a href="#">{navtabs.tab5}</a></li>
-              <li><a href="#">{navtabs.tab6}</a></li>
+              <li className="flex gap-1"><a href="#">{navtabs.tab1}</a>
+              <FaChevronDown className="pt-1 text-xl"/></li>
+              <li className="flex gap-1"><a href="#">{navtabs.tab2}</a>
+              <FaChevronDown className="pt-1 text-xl"/></li>
+              <li className="flex gap-1"><a href="#">{navtabs.tab3}</a>
+              <FaChevronDown className="pt-1 text-xl"/></li>
+              <li className="flex gap-1"><a href="#">{navtabs.tab4}</a>
+              <FaChevronDown className="pt-1 text-xl"/></li>
+              <li className="flex gap-1"><a href="#">{navtabs.tab5}</a>
+              <FaChevronDown className="pt-1 text-xl"/></li>
+              <li className="flex gap-1"><a href="#">{navtabs.tab6}</a>
+              <FaChevronDown className="pt-1 text-xl"/></li>
             </ul>
             <div className="mt-auto space-y-4 h-screen hidden md:block">
               <div>
@@ -100,12 +107,18 @@ export default function HeaderClient({ navtabs, logo }: HeaderClientProps) {
 
           {/* Desktop Menu */}
           <ul className="lg:flex space-x-10 font-semibold text-md hidden">
-            <li><a href="#">{navtabs.tab1}</a></li>
-            <li><a href="#">{navtabs.tab2}</a></li>
-            <li><a href="#">{navtabs.tab3}</a></li>
-            <li><a href="#">{navtabs.tab4}</a></li>
-            <li><a href="#">{navtabs.tab5}</a></li>
-            <li><a href="#">{navtabs.tab6}</a></li>
+            <li className="flex gap-1"><a href="#">{navtabs.tab1}</a>
+              <FaChevronDown className="pt-1 text-xl"/></li>
+              <li className="flex gap-1"><a href="#">{navtabs.tab2}</a>
+              <FaChevronDown className="pt-1 text-xl"/></li>
+              <li className="flex gap-1"><a href="#">{navtabs.tab3}</a>
+              <FaChevronDown className="pt-1 text-xl"/></li>
+              <li className="flex gap-1"><a href="#">{navtabs.tab4}</a>
+              <FaChevronDown className="pt-1 text-xl"/></li>
+              <li className="flex gap-1"><a href="#">{navtabs.tab5}</a>
+              <FaChevronDown className="pt-1 text-xl"/></li>
+              <li className="flex gap-1"><a href="#">{navtabs.tab6}</a>
+              <FaChevronDown className="pt-1 text-xl"/></li>
           </ul>
 
           {/* Right icons */}
