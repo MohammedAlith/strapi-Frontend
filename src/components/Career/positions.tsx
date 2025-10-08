@@ -5,9 +5,9 @@ export default async function JobPositions() {
   const strapiUrl = "https://strapi-backend-alhx.onrender.com";
 
   // Fetch data from API
-  const res = await fetch(`${strapiUrl}/api/career-page?populate=position.lists`, {
-    next: { revalidate: 60 },
-  });
+  const res = await fetch(`${strapiUrl}/api/career-page?populate=position.lists`
+    // , {next: { revalidate: 60 },}
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch job positions");

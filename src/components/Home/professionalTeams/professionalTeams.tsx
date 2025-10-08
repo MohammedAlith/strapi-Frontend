@@ -21,8 +21,9 @@ export default async function ProfessionalTeamsServer() {
 
   try {
     const res = await fetch(
-      `${strapiUrl}/api/home-page?populate[teamsprofessional][populate]=*`,
-      { next: { revalidate: 60 } }
+      `${strapiUrl}/api/home-page?populate[teamsprofessional][populate]=*`
+      // ,
+      // { next: { revalidate: 60 } }
     );
     const json = await res.json();
     const data: TeamsData | null = json?.data?.teamsprofessional || null;

@@ -2,9 +2,11 @@ import { FaPlay } from "react-icons/fa";
 
 async function getModelData() {
   const strapiUrl = "https://strapi-backend-alhx.onrender.com";
-  const res = await fetch(`${strapiUrl}/api/service-page?populate[model][populate]=*`, {
-    next: { revalidate: 60 },
-  });
+  const res = await fetch(`${strapiUrl}/api/service-page?populate[model][populate]=*`, 
+  //   {
+  //   next: { revalidate: 60 },
+  // }
+);
 
   if (!res.ok) {
     throw new Error("Failed to fetch model section data");

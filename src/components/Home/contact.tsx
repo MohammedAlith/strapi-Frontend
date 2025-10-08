@@ -19,8 +19,9 @@ interface ContactData {
 async function fetchContact(): Promise<ContactData | null> {
   const strapiUrl = 'https://strapi-backend-alhx.onrender.com';
   const res = await fetch(
-    `${strapiUrl}/api/home-page?populate[contact][populate]=*`,
-    { next: { revalidate: 60 } }
+    `${strapiUrl}/api/home-page?populate[contact][populate]=*`
+    // ,
+    // { next: { revalidate: 60 } }
   );
   if (!res.ok) return null;
   const data = await res.json();

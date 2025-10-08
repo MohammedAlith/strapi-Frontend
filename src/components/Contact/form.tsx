@@ -4,8 +4,9 @@ export default async function Form() {
 
   try {
     const res = await fetch(
-      `${strapiUrl}/api/contact-page?populate[Form][populate]=*`,
-      { next: { revalidate: 60 } }
+      `${strapiUrl}/api/contact-page?populate[Form][populate]=*`
+      // ,
+      // { next: { revalidate: 60 } }
     );
     if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`);
     const json = await res.json();

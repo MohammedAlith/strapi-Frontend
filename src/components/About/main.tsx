@@ -13,9 +13,9 @@ export const dynamic = "force-static";
 export default async function main(){
       const strapiUrl = "https://strapi-backend-alhx.onrender.com";
 
-  const res = await fetch(`${strapiUrl}/api/aboutpage?populate=*`, {
-    next: { revalidate: 60 },
-  });
+  const res = await fetch(`${strapiUrl}/api/aboutpage?populate=*`
+    // , {next: { revalidate: 60 },}
+  );
   const data = await res.json();
 
   if(data==null){

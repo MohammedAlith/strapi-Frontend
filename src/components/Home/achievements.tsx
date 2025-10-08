@@ -10,8 +10,9 @@ interface Achievement {
 async function fetchAchievements(): Promise<Achievement[]> {
   const strapiUrl = 'https://strapi-backend-alhx.onrender.com';
   const res = await fetch(
-    `${strapiUrl}/api/home-page?populate[Achievement][populate]=*`,
-    { next: { revalidate: 60 } } // ISR cache if desired
+    `${strapiUrl}/api/home-page?populate[Achievement][populate]=*`
+    // ,
+    // { next: { revalidate: 60 } } // ISR cache if desired
   );
   if (!res.ok) {
     throw new Error("Failed to fetch stats");

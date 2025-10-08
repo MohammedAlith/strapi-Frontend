@@ -6,9 +6,11 @@ import { FaChartLine } from "react-icons/fa6";
 // Fetch from Strapi
 async function getImageSection() {
   const strapiUrl = "https://strapi-backend-alhx.onrender.com";
-  const res = await fetch(`${strapiUrl}/api/service-page?populate[supports][populate]=*`, {
-    next: { revalidate: 60 }, // ISR: revalidate every 60s
-  });
+  const res = await fetch(`${strapiUrl}/api/service-page?populate[supports][populate]=*`, 
+  //   {
+  //   next: { revalidate: 60 }, // ISR: revalidate every 60s
+  // }
+);
 
   if (!res.ok) {
     throw new Error("Failed to fetch ImageSection data");

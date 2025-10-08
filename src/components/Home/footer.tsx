@@ -11,8 +11,9 @@ export default async function Footer() {
  const strapiUrl = 'https://strapi-backend-alhx.onrender.com';
   try {
     const res = await fetch(
-      `${strapiUrl}/api/home-page?populate[footer][populate]=*`,
-      { next: { revalidate: 60 } } 
+      `${strapiUrl}/api/home-page?populate[footer][populate]=*`
+      // ,
+      // { next: { revalidate: 60 } } 
     );
     const data = await res.json();
     footer = data?.data?.footer || null;

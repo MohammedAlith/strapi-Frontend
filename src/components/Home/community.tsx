@@ -20,8 +20,9 @@ interface CommunityData {
 async function fetchCommunity(): Promise<CommunityData | null> {
   const strapiUrl = 'https://strapi-backend-alhx.onrender.com';
   const res = await fetch(
-    `${strapiUrl}/api/home-page?populate[community][populate]=*`,
-    { next: { revalidate: 60 } }
+    `${strapiUrl}/api/home-page?populate[community][populate]=*`
+    // ,
+    // { next: { revalidate: 60 } }
   );
   if (!res.ok) return null;
   const data = await res.json();

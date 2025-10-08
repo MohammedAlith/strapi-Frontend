@@ -20,7 +20,7 @@ type APIResponse = {
 export default async function Head() {
    const strapiUrl = "https://strapi-backend-alhx.onrender.com";
   const res = await fetch(`${strapiUrl}/api/career-page?populate[Main][populate]=*`, {
-    next: { revalidate: 60 }, // fetch fresh data
+    // next: { revalidate: 60 }, 
   });
 
   if (!res.ok) {

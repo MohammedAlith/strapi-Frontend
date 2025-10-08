@@ -2,7 +2,7 @@ import FAQClient from './faqClient'
 export default async function FAQ(){
     const res = await fetch(
     "https://strapi-backend-alhx.onrender.com/api/career-page?populate[faq][populate]=*",
-    { next: { revalidate: 60 } } 
+    // { next: { revalidate: 60 } } 
   );
 
   if (!res.ok) throw new Error("Failed to fetch FAQ data");

@@ -1,9 +1,11 @@
 import PricingSection from "./pricingCard";
 
 async function getPricingData() {
-  const res = await fetch("https://strapi-backend-alhx.onrender.com/api/service-page?populate[Pricing][populate]=*", {
-    next: { revalidate: 60 },
-  });
+  const res = await fetch("https://strapi-backend-alhx.onrender.com/api/service-page?populate[Pricing][populate]=*", 
+  //   {
+  //   next: { revalidate: 60 },
+  // }
+);
   if (!res.ok) throw new Error("Failed to fetch pricing");
   const json = await res.json();
   return json.data.Pricing;

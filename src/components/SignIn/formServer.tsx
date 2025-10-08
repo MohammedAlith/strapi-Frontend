@@ -16,8 +16,9 @@ interface SignInData {
 
 async function getData(): Promise<SignInData> {
   const res = await fetch(
-    "https://strapi-backend-alhx.onrender.com/api/sign-in?populate=*",
-    { cache: "no-store" } // fetch fresh every request
+    "https://strapi-backend-alhx.onrender.com/api/sign-in?populate=*"
+    // ,
+    // { cache: "no-store" } // fetch fresh every request
   );
   const json = await res.json();
   return json.data.Signin;

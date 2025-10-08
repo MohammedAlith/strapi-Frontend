@@ -239,7 +239,7 @@ export default function HeaderClient({ navtabs, logo }: HeaderClientProps) {
         </Link>
         <FaChevronRight className="pt-1 text-xl"/>
         </li>
-                    <li className="flex justify-betweenhover:text-blue-500"> <Link href="/contact">
+                    <li className="flex justify-between hover:text-blue-500"> <Link href="/contact">
           Contact
         </Link>
         <FaChevronRight className="pt-1 text-xl"/>

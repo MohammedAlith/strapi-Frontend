@@ -6,9 +6,10 @@ export default async function Benefits() {
   const strapiUrl = "https://strapi-backend-alhx.onrender.com";
 
   // Fetch career page data including benefits
-  const res = await fetch(`${strapiUrl}/api/career-page?populate[benefits][populate]=*`, {
-    next: { revalidate: 60 }, // ISR 60 seconds
-  });
+  const res = await fetch(`${strapiUrl}/api/career-page?populate[benefits][populate]=*`
+    // , {
+    //  next: { revalidate: 60 }, }
+    );
 
   if (!res.ok) throw new Error("Failed to fetch benefits data");
 

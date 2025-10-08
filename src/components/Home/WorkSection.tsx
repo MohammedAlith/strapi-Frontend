@@ -40,7 +40,9 @@ export default async function WorkSection(){
   let data: WorkSection | null = null;
 
   try {
-    const res = await fetch(`${strapiUrl}/api/home-page?populate[WorkSection][populate]=*`,  {next: { revalidate: 60 }});
+    const res = await fetch(`${strapiUrl}/api/home-page?populate[WorkSection][populate]=*`
+      // ,  {next: { revalidate: 60 }}
+    );
     if (!res.ok) throw new Error('Failed to fetch About from Strapi');
 
     const json = await res.json();

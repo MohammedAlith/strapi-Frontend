@@ -16,10 +16,12 @@ interface TeamData {
 
 async function  getTeamData(): Promise<TeamData> {
    const strapiUrl = "https://strapi-backend-alhx.onrender.com";
-  const res = await fetch(`${strapiUrl}/api/career-page?populate[teammates][populate]=*`, {
-    // Cache revalidation example: optional
-    next: { revalidate: 60 },
-  });
+  const res = await fetch(`${strapiUrl}/api/career-page?populate[teammates][populate]=*`
+  //   , {
+  //   // Cache revalidation example: optional
+  //   next: { revalidate: 60 },
+  // }
+);
   if (!res.ok) throw new Error("Failed to fetch team data");
   const data = await res.json();
   return data.data.teammates;

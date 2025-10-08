@@ -9,6 +9,7 @@ import Career from '@/components/Career/main'
 // Define the expected props for dynamic route
 export const dynamic = "force-static";
 
+
 // Pre-render these section values at build time
 export function generateStaticParams() {
   return [

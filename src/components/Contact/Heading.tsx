@@ -6,9 +6,12 @@ export default async function Contact() {
   let data = null;
 
   try {
-    const res = await fetch(`${strapiUrl}/api/contact-page?populate=*`, {
-      next: { revalidate: 60 },
-    });
+    const res = await fetch(`${strapiUrl}/api/contact-page?populate=*`
+    //   , 
+    //   {
+    //   next: { revalidate: 60 },
+    // }
+  );
 
     if (!res.ok) {
       throw new Error(`Failed to fetch: ${res.status}`);
