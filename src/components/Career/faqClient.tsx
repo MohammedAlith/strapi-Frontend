@@ -1,83 +1,59 @@
 "use client"
-import { useState, useEffect} from "react";
+import { useState,useEffect } from "react";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
-import { FaChevronDown } from "react-icons/fa";
-import { FaChevronUp } from "react-icons/fa";
+interface FAQItem {
+  id: number;
+  ques: string;
+  ans: string;
+}
 
+interface FAQClientProps {
+  list: FAQItem[];
+}
 
-export default function faqClient(){
-    const[show, setShow]=useState(false);
-    const[loading, setLoading]=useState(true);
-    const options={
-        questions:"How do I get my subscription receipt?",
-        Answers:
-        "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui. Cras justo odio, dapibus ac facilisis."
-    }
+export default function FAQClient({ list }: FAQClientProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const[loading, setLoading]=useState(true);
+
  
-    useEffect(() => {
-    setLoading(false);
+
+  useEffect(() => {
+    setLoading(false); 
   }, []);
 
-  if(loading){
- return<p className="flex items-center w-full text-3xl text-blue-500">Loading</p>
-  }
-    return(
-        !loading&&(
-        <div className="flex flex-col gap-3">
-            <div className="bg-white flex flex-col shadow-lg p-5 rounded-md text-lg gap-3">
-                <div className="flex gap-3 text-blue-500">
-                <button onClick={(
+  if(loading){ 
+     
+    return<p className="flex items-center w-full text-3xl text-blue-500">Loading</p>
+ }
+ 
 
-                )=>setShow(!show)}>{!show?<FaChevronDown/>:<FaChevronUp/>}</button>
-                <h1 >{options.questions}</h1>
-                </div>
-                <div className="ps-8">
-                {show&&
-                <p className="text-gray-500">{options.Answers}</p>}
-                </div>
-            </div>
+  const toggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
-            <div className="bg-white flex flex-col shadow-lg p-5 rounded-md text-lg gap-3">
-                <div className="flex gap-3 text-blue-500">
-                <button onClick={(
-
-                )=>setShow(!show)}>{!show?<FaChevronDown/>:<FaChevronUp/>}</button>
-                <h1 >{options.questions}</h1>
-                </div>
-                <div className="ps-8">
-                {show&&
-                <p className="text-gray-500">{options.Answers}</p>}
-                </div>
-            </div>
-
-            <div className="bg-white flex flex-col shadow-lg p-5 rounded-md text-lg gap-3">
-                <div className="flex gap-3 text-blue-500">
-                <button onClick={(
-
-                )=>setShow(!show)}>{!show?<FaChevronDown/>:<FaChevronUp/>}</button>
-                <h1 >{options.questions}</h1>
-                </div>
-                <div className="ps-8">
-                {show&&
-                <p className="text-gray-500">{options.Answers}</p>}
-                </div>
-            </div>
-
-            <div className="bg-white flex flex-col shadow-lg p-5 rounded-md text-lg gap-3">
-                <div className="flex gap-3 text-blue-500">
-                <button onClick={(
-
-                )=>setShow(!show)}>{!show?<FaChevronDown/>:<FaChevronUp/>}</button>
-                <h1 >{options.questions}</h1>
-                </div>
-                <div className="ps-8">
-                {show&&
-                <p className="text-gray-500">{options.Answers}</p>}
-                </div>
-            </div>
-
-            
+  return (
+    !loading&&(
+    <div className="flex flex-col gap-3 w-full p-4">
+      {list.map((item, index) => (
+        <div
+          key={item.id}
+          className="bg-white flex flex-col shadow-lg p-5 rounded-md text-lg gap-3"
+        >
+          <div className="flex gap-3 text-blue-500 items-center">
+            <button onClick={() => toggle(index)}>
+              {openIndex === index ? <FaChevronUp /> : <FaChevronDown />}
+            </button>
+            <h1>{item.ques}</h1>
+          </div>
+          <div className="ps-8">
+            {openIndex === index && (
+              <p className="text-gray-500 whitespace-pre-line">{item.ans}</p>
+            )}
+          </div>
         </div>
-
-    ))
+      ))}
+    </div>
+    )
+  );
 }

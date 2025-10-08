@@ -2,6 +2,15 @@
 
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
+import Link from "next/link";
+import AboutSection from "@/components/About/main";
+import ContactSection from "@/components/Contact/Main";
+import SignIn from '@/components/SignIn/main';
+import SignUp from '@/components/SignUp/main';
+import Service from '@/components/Service/main'
+import Career from '@/components/Career/main'
+import { FaChevronRight } from "react-icons/fa";
+
 import {
   IoInformationCircleOutline,
   IoSearchOutline,
@@ -34,6 +43,14 @@ type HeaderClientProps = {
 
 export default function HeaderClient({ navtabs, logo }: HeaderClientProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false);
+  const about=<AboutSection/>
+  const contact=<ContactSection/>
+  const service=<Service/>
+  const career=<Career/>
+  const signIn=<SignIn/>
+   const signUp=<SignUp/>
 
   // Lock scroll for mobile menu
   const handleMobileMenu = (open: boolean) => {
@@ -68,20 +85,94 @@ export default function HeaderClient({ navtabs, logo }: HeaderClientProps) {
               </button>
             </div>
             <ul className="flex flex-col space-y-4 font-semibold text-lg">
-              <li className="flex gap-1"><a href="#">{navtabs.tab1}</a>
-              <FaChevronDown className="pt-1 text-xl"/></li>
-              <li className="flex gap-1"><a href="#">{navtabs.tab2}</a>
-              <FaChevronDown className="pt-1 text-xl"/></li>
-              <li className="flex gap-1"><a href="#">{navtabs.tab3}</a>
-              <FaChevronDown className="pt-1 text-xl"/></li>
-              <li className="flex gap-1"><a href="#">{navtabs.tab4}</a>
-              <FaChevronDown className="pt-1 text-xl"/></li>
-              <li className="flex gap-1"><a href="#">{navtabs.tab5}</a>
-              <FaChevronDown className="pt-1 text-xl"/></li>
-              <li className="flex gap-1"><a href="#">{navtabs.tab6}</a>
-              <FaChevronDown className="pt-1 text-xl"/></li>
+              <li>
+                <button className="grid grid-cols-2 gap-3">{navtabs.tab1}
+                   <FaChevronDown
+                  className={`pt-1 text-xl transition-transform  ${
+                    desktopDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+                </button>
+              </li>
+
+              {/* tab2 dropdown */}
+              <li className="flex flex-col gap-2">
+                <button
+                  className="flex items-center gap-3"
+                  onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+                >
+                  {navtabs.tab2}
+                  <FaChevronDown
+                    className={`pt-1 text-xl transition-transform ${
+                      mobileDropdownOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {mobileDropdownOpen && (
+                  <ul className="ml-4 mt-2 flex flex-col gap-1">
+                    <li> <Link href="/">
+          Home
+        </Link></li>
+                    <li> <Link href="/about">
+          About
+        </Link></li>
+                    <li> <Link href="/service">
+          Service
+        </Link></li>
+                    <li> <Link href="/contact">
+          Contact
+        </Link></li>
+                   <li> <Link href="/career">
+          Career
+        </Link></li>
+                   <li> <Link href="/signIn">
+          SignIn
+        </Link></li>
+                   <li> <Link href="/signUp">
+          SignUp
+        </Link></li>
+                  </ul>
+                )}
+              </li>
+
+              <li>
+                <button className="flex items-center gap-3">{navtabs.tab3}
+                   <FaChevronDown
+                  className={`pt-1 text-xl transition-transform ${
+                    desktopDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+                </button>
+              </li>
+              <li>
+                <button className="flex items-center gap-3">{navtabs.tab4}
+                   <FaChevronDown
+                  className={`pt-1 text-xl transition-transform  ${
+                    desktopDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+                </button>
+              </li>
+              <li>
+                <button className="flex items-center gap-3">{navtabs.tab5}
+                   <FaChevronDown
+                  className={`pt-1 text-xl transition-transform ${
+                    desktopDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+                </button>
+              </li>
+              <li>
+                <button className="flex items-center gap-3">{navtabs.tab6}
+                   <FaChevronDown
+                  className={`pt-1 text-xl transition-transform ${
+                    desktopDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+                </button>
+              </li>
             </ul>
-            <div className="mt-auto space-y-4 h-screen hidden md:block">
+            <div className="mt-auto space-y-8 h-screen pt-24 ">
               <div>
                 <a href="mailto:info@email.com" className="block hover:text-blue-400">
                   info@email.com
@@ -101,30 +192,125 @@ export default function HeaderClient({ navtabs, logo }: HeaderClientProps) {
       )}
 
       {/* Sticky Transparent Navbar */}
-      <nav className="sticky top-0 left-0 w-screen z-50 bg-white shadow text-gray-800 text-md ">
+      <nav className="sticky top-0 left-0 w-screen z-50 bg-white shadow text-gray-800 text-md">
         <div className="flex justify-between px-4 lg:px-20 py-6 items-center">
           <img src={logo.url} alt="Logo" width={140} height={60} />
 
           {/* Desktop Menu */}
           <ul className="lg:flex space-x-10 font-semibold text-md hidden">
-            <li className="flex gap-1"><a href="#">{navtabs.tab1}</a>
-              <FaChevronDown className="pt-1 text-xl"/></li>
-              <li className="flex gap-1"><a href="#">{navtabs.tab2}</a>
-              <FaChevronDown className="pt-1 text-xl"/></li>
-              <li className="flex gap-1"><a href="#">{navtabs.tab3}</a>
-              <FaChevronDown className="pt-1 text-xl"/></li>
-              <li className="flex gap-1"><a href="#">{navtabs.tab4}</a>
-              <FaChevronDown className="pt-1 text-xl"/></li>
-              <li className="flex gap-1"><a href="#">{navtabs.tab5}</a>
-              <FaChevronDown className="pt-1 text-xl"/></li>
-              <li className="flex gap-1"><a href="#">{navtabs.tab6}</a>
-              <FaChevronDown className="pt-1 text-xl"/></li>
+            <li>
+              <button className="flex items-center gap-1 hover:text-blue-500">{navtabs.tab1}
+                 <FaChevronDown
+                  className={`pt-1 text-xl transition-transform ${
+                    desktopDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </li>
+
+            {/* tab2 dropdown */}
+            <li
+              className="relative"
+              onMouseEnter={() => setDesktopDropdownOpen(true)}
+              onMouseLeave={() => setDesktopDropdownOpen(false)}
+            >
+              <button className="flex items-center gap-1 hover:text-blue-500">
+                {navtabs.tab2}
+                <FaChevronDown
+                  className={`pt-1 text-xl transition-transform ${
+                    desktopDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {desktopDropdownOpen && (
+                <ul className="absolute top-5 left-0 bg-white shadow-lg rounded-xl w-48 p-4  flex flex-col gap-1   ">
+                   <li className="flex justify-between hover:text-blue-500"> <Link href="/">
+          Home
+        </Link>
+        <FaChevronRight className="pt-1 text-xl"/>
+        </li>
+                    <li className="flex justify-between hover:text-blue-500"> <Link href="/about">
+          About
+        </Link>
+        <FaChevronRight className="pt-1 text-xl"/>
+        </li>
+                    <li className="flex justify-between hover:text-blue-500"> <Link href="/service">
+          Service
+        </Link>
+        <FaChevronRight className="pt-1 text-xl"/>
+        </li>
+                    <li className="flex justify-betweenhover:text-blue-500"> <Link href="/contact">
+          Contact
+        </Link>
+        <FaChevronRight className="pt-1 text-xl"/>
+        </li>
+                   <li className="flex justify-between hover:text-blue-500"> <Link href="/career">
+          Career
+        </Link>
+        <FaChevronRight className="pt-1 text-xl"/>
+        </li>
+                   <li className="flex justify-between hover:text-blue-500"> <Link href="/signIn">
+          SignIn
+        </Link>
+        <FaChevronRight className="pt-1 text-xl"/></li>
+                   <li className="flex justify-between hover:text-blue-500"> <Link href="/signUp">
+          SignUp
+        </Link>
+        <FaChevronRight className="pt-1 text-xl"/></li>
+                </ul>
+              )}
+            </li>
+
+            <li>
+              <button className="flex items-center gap-1 hover:text-blue-500">{navtabs.tab3}
+                 <FaChevronDown
+                  className={`pt-1 text-xl transition-transform ${
+                    desktopDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </li>
+            <li>
+              <button className="flex items-center gap-1 hover:text-blue-500">{navtabs.tab4}
+                 <FaChevronDown
+                  className={`pt-1 text-xl transition-transform ${
+                    desktopDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </li>
+            <li>
+              <button className="flex items-center gap-1 hover:text-blue-500">{navtabs.tab5}
+                 <FaChevronDown
+                  className={`pt-1 text-xl transition-transform ${
+                    desktopDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </li>
+            <li>
+              <button className="flex items-center gap-1 hover:text-blue-500">{navtabs.tab6}
+                 <FaChevronDown
+                  className={`pt-1 text-xl transition-transform ${
+                    desktopDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </li>
           </ul>
 
           {/* Right icons */}
           <ul className="flex space-x-4">
-            <li><a href="#" className="text-2xl"><IoInformationCircleOutline /></a></li>
-            <li><a href="#" className="text-2xl"><IoSearchOutline /></a></li>
+            <li>
+              <a href="#" className="text-2xl">
+                <IoInformationCircleOutline />
+              </a>
+            </li>
+            <li>
+              <a href="#" className="text-2xl">
+                <IoSearchOutline />
+              </a>
+            </li>
             <li>
               <button
                 className="text-2xl lg:hidden"
