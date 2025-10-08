@@ -4,7 +4,9 @@ import { FaCheckCircle, FaUserShield, FaBriefcase, FaAward } from "react-icons/f
 interface Achievement {
   id: number;
   title: string;
+  list:{
   value: string;
+  }
 }
 
 async function fetchAchievements(): Promise<Achievement[]> {
@@ -176,7 +178,7 @@ export default async function Achievements() {
         {stats.map((stat, index) => (
           <div key={stat.id} className="flex flex-col items-center gap-3">
             <div className="text-6xl">{icons[index]}</div>
-            <h3 className="text-3xl font-bold text-gray-800 text-center">{stat.value}</h3>
+            <h3 className="text-3xl font-bold text-gray-800 text-center">{stat.list.value}</h3>
             <p className=" text-gray-600 text-center text-md">{stat.title}</p>
           </div>
         ))}
