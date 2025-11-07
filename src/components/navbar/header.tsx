@@ -28,8 +28,9 @@ export default async function HeaderServer() {
 
   try {
     const res = await fetch(
-      `${strapiUrl}/api/home-page?populate[Navtabs][populate]=*`,
-      { next: { revalidate: 60 } }
+      `${strapiUrl}/api/home-page?populate[Navtabs][populate]=*`
+      // ,
+      // { next: { revalidate: 60 } }
     );
     const json = await res.json();
     navbarData = json.data;

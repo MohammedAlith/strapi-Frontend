@@ -3,9 +3,11 @@ export default async function Step() {
   const strapiUrl = "https://strapi-backend-alhx.onrender.com";
 
   // Fetch steps data
-  const res = await fetch(`${strapiUrl}/api/service-page?populate[steps][populate]=*`, {
-    next: { revalidate: 60 },
-  });
+  const res = await fetch(`${strapiUrl}/api/service-page?populate[steps][populate]=*`, 
+  //   {
+  //   next: { revalidate: 60 },
+  // }
+);
 
   if (!res.ok) {
     throw new Error("Failed to fetch Steps data");

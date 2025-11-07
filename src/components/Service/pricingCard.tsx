@@ -8,9 +8,11 @@ export default function PricingSection() {
 
   useEffect(() => {
     async function fetchPricing() {
-      const res = await fetch("https://strapi-backend-alhx.onrender.com/api/service-page?populate=Pricing", {
-        cache: "no-store",
-      });
+      const res = await fetch("https://strapi-backend-alhx.onrender.com/api/service-page?populate=Pricing", 
+      //   {
+      //   cache: "no-store",
+      // }
+    );
       const json = await res.json();
       setPricing(json.data.Pricing);
     }

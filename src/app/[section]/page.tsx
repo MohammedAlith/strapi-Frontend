@@ -1,4 +1,4 @@
-// src/app/[section]/page.tsx
+
 
 import AboutSection from "@/components/About/main";
 import ContactSection from "@/components/Contact/Main";
@@ -6,11 +6,11 @@ import SignIn from '@/components/SignIn/main';
 import SignUp from '@/components/SignUp/main';
 import Service from '@/components/Service/main'
 import Career from '@/components/Career/main'
-// Define the expected props for dynamic route
+
 export const dynamic = "force-static";
 
 
-// Pre-render these section values at build time
+
 export function generateStaticParams() {
   return [
     { section: "about" },

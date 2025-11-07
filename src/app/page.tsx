@@ -16,8 +16,7 @@ export default function Home() {
   return (
     <div className=" w-full  text-black ">
       <Hero/>
-      {/* <Hero/> */}
-      {/* <Main/> */}
+     
       <AboutSection/>
       <WorkSection/>
       <Teams/>

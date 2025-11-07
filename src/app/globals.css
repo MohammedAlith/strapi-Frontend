@@ -34,7 +34,7 @@ body {
 }
 
 @media (min-width: 768px ) { 
-  /* /* Tailwind's md breakpoint */
+
   .slanted-hero {
     clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
    }

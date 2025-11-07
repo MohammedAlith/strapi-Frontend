@@ -2,9 +2,11 @@ export default async function customerService(){
     const strapiUrl = "https://strapi-backend-alhx.onrender.com";
 
   // Fetch customer section data
-  const res = await fetch(`${strapiUrl}/api/service-page?populate[customer][populate]=*`, {
-    next: { revalidate: 60 },
-  });
+  const res = await fetch(`${strapiUrl}/api/service-page?populate[customer][populate]=*`
+    // , {
+    // next: { revalidate: 60 },
+  // }
+);
 
   if (!res.ok) {
     throw new Error("Failed to fetch customer section data");
